@@ -1,0 +1,10 @@
+{
+  "name": "karu-library",
+  "version": "1.0.1",
+  "private": true,
+  "author": "Karu_Dev",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
