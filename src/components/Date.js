@@ -1,5 +1,3 @@
-"use client";
-
 export const months = [
   "January",
   "February",
@@ -33,55 +31,6 @@ export function formatDateToMMDDYYYY(dateString) {
 
   // Return the formatted date string
   return `${month}/${day}/${year}`;
-}
-
-export function formatDateTime({ inputDate, separate = false }) {
-  // Check if inputDate is null
-  if (!inputDate) {
-    return "N/A";
-  }
-
-  // Parse the input date string
-  const parts = inputDate.split("-");
-  const year = parseInt(parts[0]);
-  const monthIndex = parseInt(parts[1]) - 1; // Month indexes are zero-based
-  const dayTimeParts = parts[2].split("T");
-  let day = parseInt(dayTimeParts[0]);
-  const timeParts = dayTimeParts[1].split(".")[0].split(":");
-
-  if (day < 10) {
-    day = "0" + day;
-  }
-
-  // Create a Date object
-  const date = new Date(year, monthIndex, day);
-
-  // Format the date
-  const month = date.toLocaleString("default", { month: "long" });
-
-  let hours = parseInt(timeParts[0]);
-  const minutes = timeParts[1];
-  const seconds = timeParts[2];
-  const ampm = hours >= 12 ? "PM" : "AM";
-
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  const strHours = hours < 10 ? "0" + hours : hours;
-
-  const formattedDate = `${month} ${day}, ${year} ${strHours}:${minutes}:${seconds} ${ampm}`;
-
-  return (
-    <>
-      {separate ? (
-        <div className="flex flex-col w-[180px] ">
-          <span>{`${month} ${day}, ${year} `}</span>
-          <span>{`${strHours}:${minutes}:${seconds} ${ampm}`}</span>
-        </div>
-      ) : (
-        formattedDate
-      )}
-    </>
-  );
 }
 
 export function formatDateV3(inputDate) {

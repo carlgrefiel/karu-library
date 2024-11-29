@@ -1,15 +1,2 @@
-import {
-  convertToText,
-  currentDateComponent,
-  currentDateComponentStr,
-  currentTimestamp,
-  verifyPassword,
-} from "./components/UtilsV2";
-
-export {
-  currentDateComponent,
-  convertToText,
-  verifyPassword,
-  currentTimestamp,
-  currentDateComponentStr,
-};
+export * from "./components/UtilsV2";
+export * from "./components/Date";
